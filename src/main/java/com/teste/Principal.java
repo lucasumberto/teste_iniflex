@@ -2,7 +2,6 @@ package com.teste;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +35,15 @@ public class Principal {
         // 3.2 - Remover o funcionário "João" da lista
         funcionarios.removeIf(funcionario -> funcionario.getNome().equals("João"));
         System.out.println("\n3.2 - Funcionário João removido. Total: " + funcionarios.size());
+
+        // 3.3 - Imprimir todos os funcionários com formatação
+        System.out.println("\n3.3 - Funcionários com formatação:");
+        for (Funcionario funcionario : funcionarios) {
+            System.out.println("Nome: " + funcionario.getNome() +
+                    ", Data Nascimento: " + funcionario.getDataNascimentoFormatada() +
+                    ", Salário: " + funcionario.getSalarioFormatado() +
+                    ", Função: " + funcionario.getFuncao());
+        }
 
     }
 }
