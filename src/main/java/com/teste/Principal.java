@@ -108,5 +108,13 @@ public class Principal {
             System.out.println("  - Nome: " + funcionario.getNome());
         }
 
+        // 3.11 - Imprimir total dos salários
+        System.out.println("\n3.11 - Total dos salários:");
+        BigDecimal totalSalarios = BigDecimal.ZERO;
+        for (Funcionario funcionario : funcionarios) {
+            totalSalarios = totalSalarios.add(funcionario.getSalario());
+        }
+        System.out.println("  - Total: " + totalSalarios);
+
     }
 }
