@@ -45,5 +45,13 @@ public class Principal {
                     ", Função: " + funcionario.getFuncao());
         }
 
+        // 3.4 - Aumento de 10% nos salários
+        for (Funcionario funcionario : funcionarios) {
+            BigDecimal salarioAtual = funcionario.getSalario();
+            BigDecimal novoSalario = salarioAtual.multiply(new BigDecimal("1.10"));
+            funcionario.setSalario(novoSalario);
+        }
+        System.out.println("\n3.4 - Aumento de 10% aplicado aos salários.");
+
     }
 }
