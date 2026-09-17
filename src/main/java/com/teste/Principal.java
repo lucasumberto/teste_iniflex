@@ -2,6 +2,7 @@ package com.teste;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +82,20 @@ public class Principal {
                 System.out.println("  - Nome: " + funcionario.getNome() +
                         ", Data Nascimento: " + funcionario.getDataNascimentoFormatada());
             }
+        }
+
+        // 3.9 - Imprimir funcionário com maior idade
+        System.out.println("\n3.9 - Funcionário com maior idade:");
+        Funcionario funcionarioMaisVelho = null;
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionarioMaisVelho == null ||
+                funcionario.getDataNascimento().isBefore(funcionarioMaisVelho.getDataNascimento())) {
+                funcionarioMaisVelho = funcionario;
+            }
+        }
+        if (funcionarioMaisVelho != null) {
+            int idade = Period.between(funcionarioMaisVelho.getDataNascimento(), LocalDate.now()).getYears();
+            System.out.println("  - Nome: " + funcionarioMaisVelho.getNome() + ", Idade: " + idade);
         }
 
     }
