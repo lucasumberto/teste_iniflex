@@ -33,5 +33,9 @@ public class Principal {
                     ", Função: " + funcionario.getFuncao());
         }
 
+        // 3.2 - Remover o funcionário "João" da lista
+        funcionarios.removeIf(funcionario -> funcionario.getNome().equals("João"));
+        System.out.println("\n3.2 - Funcionário João removido. Total: " + funcionarios.size());
+
     }
 }
