@@ -61,7 +61,7 @@ public class Principal {
             String funcao = funcionario.getFuncao();
             funcionariosPorFuncao.computeIfAbsent(funcao, k -> new ArrayList<>()).add(funcionario);
         }
-        System.out.println("\n3.5 - Funcionários agrupados por função: ");
+        System.out.println("\n3.5 - Funcionários agrupados por função em MAP. " + funcionariosPorFuncao);
 
         // 3.6 - Imprimir funcionários agrupados por função
         System.out.println("\n3.6 - Funcionários por função:");
