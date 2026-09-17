@@ -3,7 +3,9 @@ package com.teste;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Principal {
     public static void main(String[] args) {
@@ -52,6 +54,14 @@ public class Principal {
             funcionario.setSalario(novoSalario);
         }
         System.out.println("\n3.4 - Aumento de 10% aplicado aos salários.");
+
+        // 3.5 - Agrupar funcionários por função
+        Map<String, List<Funcionario>> funcionariosPorFuncao = new HashMap<>();
+        for (Funcionario funcionario : funcionarios) {
+            String funcao = funcionario.getFuncao();
+            funcionariosPorFuncao.computeIfAbsent(funcao, k -> new ArrayList<>()).add(funcionario);
+        }
+        System.out.println("\n3.5 - Funcionários agrupados por função: " + funcionariosPorFuncao);
 
     }
 }
