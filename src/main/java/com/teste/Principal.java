@@ -61,7 +61,17 @@ public class Principal {
             String funcao = funcionario.getFuncao();
             funcionariosPorFuncao.computeIfAbsent(funcao, k -> new ArrayList<>()).add(funcionario);
         }
-        System.out.println("\n3.5 - Funcionários agrupados por função: " + funcionariosPorFuncao);
+        System.out.println("\n3.5 - Funcionários agrupados por função: ");
+
+        // 3.6 - Imprimir funcionários agrupados por função
+        System.out.println("\n3.6 - Funcionários por função:");
+        for (Map.Entry<String, List<Funcionario>> entry : funcionariosPorFuncao.entrySet()) {
+            System.out.println("\nFunção: " + entry.getKey());
+            for (Funcionario funcionario : entry.getValue()) {
+                System.out.println("  - Nome: " + funcionario.getNome() +
+                        ", Salário: " + funcionario.getSalarioFormatado());
+            }
+        }
 
     }
 }
