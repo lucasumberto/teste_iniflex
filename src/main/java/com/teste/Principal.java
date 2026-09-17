@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +98,14 @@ public class Principal {
         if (funcionarioMaisVelho != null) {
             int idade = Period.between(funcionarioMaisVelho.getDataNascimento(), LocalDate.now()).getYears();
             System.out.println("  - Nome: " + funcionarioMaisVelho.getNome() + ", Idade: " + idade);
+        }
+
+        // 3.10 - Imprimir funcionários em ordem alfabética
+        System.out.println("\n3.10 - Funcionários em ordem alfabética:");
+        List<Funcionario> funcionariosOrdenados = new ArrayList<>(funcionarios);
+        Collections.sort(funcionariosOrdenados, Comparator.comparing(Pessoa::getNome));
+        for (Funcionario funcionario : funcionariosOrdenados) {
+            System.out.println("  - Nome: " + funcionario.getNome());
         }
 
     }
